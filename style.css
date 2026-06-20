@@ -1,0 +1,239 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --light-bg: #f8f9fa;
+    --box-bg: #f5f5f5;
+    --border-color: #eaeaea;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Computer Modern Serif", "STIX Two Text", "EB Garamond", "Times New Roman", Times, serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    line-height: 23px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin-bottom: 70px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-svg {
+    display: block;
+    overflow: visible;
+}
+
+.logo-shape {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: logoAssemble 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.diagonal {
+    transform: translate(-30px, 30px) rotate(-90deg) scale(0.8);
+    animation-delay: 0.1s;
+}
+
+.square-tl {
+    transform: translate(20px, -40px) rotate(180deg) scale(0.5);
+    animation-delay: 0.2s;
+}
+
+.square-br {
+    transform: translate(-20px, 40px) rotate(-180deg) scale(0.5);
+    animation-delay: 0.4s;
+}
+
+@keyframes logoAssemble {
+    to {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+}
+
+.logo-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.text-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: 2px; /* slight padding to avoid clipping letters like p */
+}
+
+.text-line {
+    display: inline-block;
+    transform: translateY(110%);
+    animation: textCurtainUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.line-1 { animation-delay: 1.0s; }
+.line-2 { animation-delay: 1.15s; }
+.line-3 { animation-delay: 1.3s; }
+
+@keyframes textCurtainUp {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.main-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 400;
+    font-variant: small-caps;
+    letter-spacing: normal;
+    margin-bottom: 70px;
+    margin-top: 0;
+}
+
+.text-container {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+}
+
+.info-value {
+    background-color: rgb(248, 248, 248);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 12px;
+    color: #555;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.mission-box {
+    background-color: var(--box-bg);
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mission-box h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.mission-box p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.content {
+    font-size: 18px;
+    margin-bottom: 40px;
+    width: 100%;
+    line-height: 23px;
+}
+
+.content p {
+    margin-bottom: 24px;
+}
+
+.footer-links {
+    margin-bottom: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.link-box {
+    background-color: rgb(248, 248, 248);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+.separator {
+    color: #ccc;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .main-title {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    body {
+        padding: 40px 15px;
+    }
+
+    .mission-box {
+        padding: 30px 20px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
